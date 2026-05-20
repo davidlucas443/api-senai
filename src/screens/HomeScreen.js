@@ -126,7 +126,7 @@ export default function HomeScreen() {
 
         <SchoolInfoCard />
 
-        <Surface style={styles.filterSection} elevation={1}>
+        <Surface style={styles.filterSection} elevation={4}>
           <Text variant="titleMedium" style={styles.filterTitle}>
             Filtrar por area
           </Text>
@@ -202,6 +202,10 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     padding: 12,
     marginBottom: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
   },
   filterTitle: {
     marginBottom: 8,
