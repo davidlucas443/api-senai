@@ -4,7 +4,7 @@ export const appTheme = {
   ...MD3LightTheme,
   roundness: 16,
   colors: {
-    // Tema reduzido — somente cores: vermelho #ED1C24 e branco #FFFFFF
+    
     primary: '#ED1C24',
     onPrimary: '#FFFFFF',
     primaryContainer: '#ED1C24',

@@ -63,7 +63,7 @@ export default function CourseDetailsModal({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFF9F3',
+    backgroundColor: '#FFFFFF',
     margin: 16,
     borderRadius: 20,
     padding: 20,
