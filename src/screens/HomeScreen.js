@@ -206,9 +206,9 @@ const styles = StyleSheet.create({
   filterTitle: {
     marginBottom: 8,
     fontWeight: '700',
-    textShadowColor: 'transparent',
-    textShadowRadius: 0,
-    textShadowOffset: { width: 0, height: 0 },
+    textShadowColor: 'rgba(0,0,0,0.16)',
+    textShadowRadius: 2,
+    textShadowOffset: { width: 0, height: 1 },
   },
   chipsWrap: {
     flexDirection: 'row',
