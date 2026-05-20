@@ -22,7 +22,7 @@ export default function AppHeader() {
       {uri ? (
         <SvgUri uri={uri} width={140} height={36} />
       ) : (
-        <Text variant="titleLarge" style={styles.title}>
+        <Text variant="titleLarge" style={[styles.title, { color: theme.colors.onPrimary }]}>
           SENAI
         </Text>
       )}
@@ -32,14 +32,16 @@ export default function AppHeader() {
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
     paddingHorizontal: 16,
     paddingVertical: 10,
-    alignItems: 'flex-start',
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
   },
   title: {
-    color: '#7A2C2C',
+    color: '#FFFFFF',
     fontWeight: '800',
   },
 });

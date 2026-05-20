@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import * as Linking from 'expo-linking';
 import {
   ActivityIndicator,
@@ -32,7 +32,7 @@ export default function HomeScreen() {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [snackbar, setSnackbar] = useState({ visible: false, message: '' });
-  const [isBackgroundPressed, setIsBackgroundPressed] = useState(false);
+  
 
   useEffect(() => {
     async function setup() {
@@ -114,16 +114,9 @@ export default function HomeScreen() {
   const areas = useMemo(() => ['Todas', ...COURSE_AREAS], []);
 
   return (
-      <Pressable
-      style={[
-        styles.screen,
-        { backgroundColor: isBackgroundPressed ? '#F5F5F5' : theme.colors.background },
-      ]}
-      onPressIn={() => setIsBackgroundPressed(true)}
-      onPressOut={() => setIsBackgroundPressed(false)}
-    >
+    <View style={[styles.screen, { backgroundColor: theme.colors.background }]}> 
+      <AppHeader />
       <ScrollView contentContainerStyle={styles.content}>
-        <AppHeader />
         <Text variant="headlineMedium" style={styles.heading}>
           Cursos de Desenvolvimento SENAI
         </Text>
@@ -186,7 +179,7 @@ export default function HomeScreen() {
       >
         {snackbar.message}
       </Snackbar>
-    </Pressable>
+    </View>
   );
 }
 
