@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import * as Linking from 'expo-linking';
 import {
   ActivityIndicator,
@@ -11,6 +11,7 @@ import {
   useTheme,
 } from 'react-native-paper';
 import ContactForm from '../components/ContactForm';
+import AppHeader from '../components/AppHeader';
 import CourseCard from '../components/CourseCard';
 import CourseDetailsModal from '../components/CourseDetailsModal';
 import SchoolInfoCard from '../components/SchoolInfoCard';
@@ -31,6 +32,7 @@ export default function HomeScreen() {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [snackbar, setSnackbar] = useState({ visible: false, message: '' });
+  const [isBackgroundPressed, setIsBackgroundPressed] = useState(false);
 
   useEffect(() => {
     async function setup() {
@@ -112,8 +114,16 @@ export default function HomeScreen() {
   const areas = useMemo(() => ['Todas', ...COURSE_AREAS], []);
 
   return (
-    <View style={[styles.screen, { backgroundColor: theme.colors.background }]}> 
+      <Pressable
+      style={[
+        styles.screen,
+        { backgroundColor: isBackgroundPressed ? '#F5F5F5' : theme.colors.background },
+      ]}
+      onPressIn={() => setIsBackgroundPressed(true)}
+      onPressOut={() => setIsBackgroundPressed(false)}
+    >
       <ScrollView contentContainerStyle={styles.content}>
+        <AppHeader />
         <Text variant="headlineMedium" style={styles.heading}>
           Cursos de Desenvolvimento SENAI
         </Text>
@@ -176,7 +186,7 @@ export default function HomeScreen() {
       >
         {snackbar.message}
       </Snackbar>
-    </View>
+    </Pressable>
   );
 }
 
