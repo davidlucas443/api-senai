@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import * as Linking from 'expo-linking';
 import {
@@ -113,10 +113,12 @@ export default function HomeScreen() {
 
   const areas = useMemo(() => ['Todas', ...COURSE_AREAS], []);
 
+  const scrollRef = useRef(null);
+
   return (
     <View style={[styles.screen, { backgroundColor: theme.colors.background }]}> 
-      <AppHeader />
-      <ScrollView contentContainerStyle={styles.content}>
+      <AppHeader onLogoPress={() => scrollRef.current?.scrollTo({ y: 0, animated: true })} />
+      <ScrollView ref={scrollRef} contentContainerStyle={styles.content}>
         <Text variant="headlineMedium" style={styles.heading}>
           Cursos de Desenvolvimento SENAI
         </Text>

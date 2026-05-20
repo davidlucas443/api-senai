@@ -38,6 +38,11 @@ const styles = StyleSheet.create({
   card: {
     marginBottom: 12,
     borderRadius: 18,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.12,
+    shadowRadius: 2,
   },
   chip: {
     alignSelf: 'flex-start',

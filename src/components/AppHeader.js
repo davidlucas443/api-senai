@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Pressable } from 'react-native';
 import { Text, useTheme } from 'react-native-paper';
 import { SvgUri } from 'react-native-svg';
 import { Asset } from 'expo-asset';
 
-export default function AppHeader() {
+export default function AppHeader({ onLogoPress }) {
   const theme = useTheme();
   const [uri, setUri] = useState(null);
 
@@ -19,13 +19,13 @@ export default function AppHeader() {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.primaryContainer }]}> 
-      {uri ? (
-        <SvgUri uri={uri} width={140} height={36} />
-      ) : (
-        <Text variant="titleLarge" style={[styles.title, { color: theme.colors.onPrimary }]}>
-          SENAI
-        </Text>
-      )}
+      <Pressable onPress={() => onLogoPress && onLogoPress()} accessible accessibilityRole="button">
+        {uri ? (
+          <SvgUri uri={uri} width={140} height={36} />
+        ) : (
+          <Text variant="titleLarge" style={[styles.title, { color: theme.colors.onPrimary }]}>SENAI</Text>
+        )}
+      </Pressable>
     </View>
   );
 }
