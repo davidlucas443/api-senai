@@ -1,9 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Text } from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
 
 export default function RatingStars({ rating }) {
+  const theme = useTheme();
   const filled = Math.floor(rating);
 
   return (
@@ -13,10 +14,12 @@ export default function RatingStars({ rating }) {
           key={star}
           name={star <= filled ? 'star' : 'star-outline'}
           size={18}
-          color="#E8A317"
+          color={theme.colors.primary}
         />
       ))}
-      <Text variant="labelMedium">{rating.toFixed(1)}</Text>
+      <Text variant="labelMedium" style={{ color: theme.colors.onBackground }}>
+        {rating.toFixed(1)}
+      </Text>
     </View>
   );
 }
