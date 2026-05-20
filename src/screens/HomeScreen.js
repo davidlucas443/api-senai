@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 16,
-    paddingBottom: 80,
+    paddingBottom: 24,
   },
   heading: {
     fontWeight: '900',
@@ -206,6 +206,9 @@ const styles = StyleSheet.create({
   filterTitle: {
     marginBottom: 8,
     fontWeight: '700',
+    textShadowColor: 'transparent',
+    textShadowRadius: 0,
+    textShadowOffset: { width: 0, height: 0 },
   },
   chipsWrap: {
     flexDirection: 'row',
@@ -224,6 +227,6 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   contactInfo: {
-    paddingVertical: 8,
+    paddingVertical: 4,
   },
 });
